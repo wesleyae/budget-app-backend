@@ -10,7 +10,7 @@ ENVELOPES = []
 
 class Envelope(Resource):
     def get(self, envelope_name):
-        return {envelope_name: ENVELOPES[envelope_name]}
+        return [x for x in ENVELOPES if x["name"] == envelope_name][0]
 
     def put(self, envelope_name):
         ENVELOPES.append({
